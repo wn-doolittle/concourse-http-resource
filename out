@@ -70,6 +70,8 @@ if [ ! -z "$auth_user" ]; then
   expanded_auth+=("$auth_user:$auth_pass")
 fi
 
+url=$(replace_build_args "$url")
+
 curl -X "$method" "${expanded_auth[@]}" "${expanded_headers[@]}" "${expanded_data[@]}" "$url"
 
 echo "{\"version\": {\"time\": \"$(date +%s)\"}}" >&3
