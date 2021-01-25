@@ -12,7 +12,7 @@ resource_types:
 - name: concourse-http-resource
   type: docker-image
   source:
-    repository: edtan1/concourse-http-resource
+    repository: weldnorthanalytics/concourse-http-resource
 ```
 
 ## Source configuration
@@ -27,6 +27,9 @@ resources:
     method: "POST"
     headers:
       Content-Type: "application/json"
+    auth:
+      user: "jsmith"
+      pass: "hunter2"
 ```
 
 * `url`: *Required.* HTTP URL to access.
@@ -34,6 +37,8 @@ resources:
 * `method`: *Optional.* HTTP method to use.  Defaults to GET.
 
 * `headers`: *Optional.* Map of HTTP headers to send
+
+* `auth`: *Optional.* If specified, send as HTTP Basic auth header
 
 ## `check`: no-op
 
@@ -53,6 +58,7 @@ Access an HTTP URL using curl.
 plan:
 - put: my-http-resource
   params:
+    data_file: out/request-payload.json
     data_text: "The build $BUILD_NAME $BUILD_ID completed"
 ```
 
