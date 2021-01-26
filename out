@@ -72,6 +72,6 @@ fi
 
 url=$(replace_build_args "$url")
 
-curl -X "$method" "${expanded_auth[@]}" "${expanded_headers[@]}" "${expanded_data[@]}" "$url"
+curl -X "$method" -i -s "${expanded_auth[@]}" "${expanded_headers[@]}" "${expanded_data[@]}" "$url"
 
 echo "{\"version\": {\"time\": \"$(date +%s)\"}}" >&3
