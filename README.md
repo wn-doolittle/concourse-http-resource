@@ -40,6 +40,8 @@ resources:
 
 * `auth`: *Optional.* If specified, send as HTTP Basic auth header
 
+* `debug`: *Optional.* If "true", show verbose curl output
+
 ## `check`: no-op
 
 This resource currently does nothing for `check`.
